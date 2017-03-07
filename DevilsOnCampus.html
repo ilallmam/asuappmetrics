@@ -1,0 +1,78 @@
+<! DOCTYPE HTML>
+<html>
+  <head>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+          <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/javascript">
+      google.charts.load('current');   // Don't need to specify chart libraries!
+      google.charts.setOnLoadCallback(drawDashboard);
+      google.charts.setOnLoadCallback(drawVisualization2); 
+      google.charts.setOnLoadCallback(drawVisualization3); 
+
+      function drawDashboard() {
+          
+        var LineChart = new google.visualization.ChartWrapper({
+          chartType: 'LineChart',
+          dataSourceUrl: 'https://docs.google.com/spreadsheets/d/1wRfhjGtQXeQd9LIHPohTVwcXW30EtSFrF2FeKIt430w/gviz/tq?sheet=userInstalls&headers=1',
+          query: 'SELECT A, D', // pulling dates (A) and aggregate of iTunes and Android downloads (D)
+          options: {
+                    'title': 'Application Installs',
+                    'subtitle': 'Unique Downloads', 
+                    'isStacked': 'true', 
+                    'colors': ['#FFC627', '#00A3E0', '#8C1D40'],
+                    'vAxis': { scaleType: 'continuous', 
+                              'format': 'short',
+                             'title': '# of New Installs'
+                             },
+                    
+                    },
+           containerId: 'userInstalls'
+        });
+
+          
+        LineChart.draw()
+      }
+    
+    function drawVisualization2()
+        {
+            var wrapper = new google.visualization.ChartWrapper({
+                chartType: 'PieChart', 
+                dataSourceUrl: 'ttps://docs.google.com/spreadsheets/d/1wRfhjGtQXeQd9LIHPohTVwcXW30EtSFrF2FeKIt430w/gviz/tq?sheet=ModoBreakDownPivot&headers=0', 
+                options: {
+                            'title': 'Breakdown of Screen Views',
+                            'colors': ['#FFC627', '#00A3E0', '#8C1D40', '#78BE20', '#FF7F32', '#5C6670'],
+                            'pieHole': '0.4'
+                            
+                         },
+                containerId: 'vis_div2'
+            });
+            wrapper.draw()
+        }
+        
+  function drawVisualization3() {
+    var wrapper = new google.visualization.ChartWrapper({
+      chartType: 'LineChart',
+      dataSourceUrl: 'ttps://docs.google.com/spreadsheets/d/1wRfhjGtQXeQd9LIHPohTVwcXW30EtSFrF2FeKIt430w/gviz/tq?sheet=modoScreenViews&headers=1',
+    options: {
+                    'title': 'Application Installs',
+                    'colors': ['#FFC627',  '#8C1D40'],
+                    'vAxis': { scaleType: 'continuous', 
+                              'format': 'short',
+                             },
+                    
+                    },
+      containerId: 'vis_div3'
+    });
+    wrapper.draw()
+  }
+    </script>
+  </head>
+
+
+    <div id="userInstalls"></div><p></p>
+    <div id="vis_div2"></div><p></p>
+    <div id="vis_div3"></div><p></p>
+
+  </body>
+</html>

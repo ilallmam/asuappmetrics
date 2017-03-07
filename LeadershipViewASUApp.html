@@ -1,0 +1,62 @@
+<! DOCTYPE HTML>
+<html>
+  <head>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+          <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/javascript">
+      google.charts.load('current');   // Don't need to specify chart libraries!
+      google.charts.setOnLoadCallback(drawDashboard);
+
+      function drawDashboard() {
+          
+        var LineChart = new google.visualization.ChartWrapper({
+          chartType: 'LineChart',
+          dataSourceUrl: 'https://docs.google.com/spreadsheets/d/1qYkeh8fkmL-a-RK0ialRGqOlIim9mZtrQWILI44jHTw/gviz/tq?sheet=userInstalls&headers=1',
+          options: {
+                    'title': 'Application Installs',
+                    'subtitle': 'Unique Downloads', 
+                    'isStacked': 'true', 
+                    'colors': ['#FFC627', '#00A3E0', '#8C1D40'],
+                    'vAxis': { scaleType: 'continuous', 
+                              'format': 'short',
+                             'title': '# of New Installs'
+                             },
+                    
+                    },
+           containerId: 'userInstalls'
+        });
+
+          
+        LineChart.draw()
+        
+          var LineChart2 = new google.visualization.ChartWrapper({
+          chartType: 'LineChart',
+          dataSourceUrl: 'https://docs.google.com/spreadsheets/d/1qYkeh8fkmL-a-RK0ialRGqOlIim9mZtrQWILI44jHTw/gviz/tq?sheet=activeDevices&headers=1',
+          options: {
+                    'title': 'Active Devices',
+                    'subtitle': 'Unique Downloads', 
+                    'isStacked': 'true', 
+                    'colors': ['#FFC627', '#00A3E0', '#8C1D40'],
+                    'vAxis': { scaleType: 'continuous', 
+                              'format': 'short',
+                             'title': '# of New Installs'
+                             },
+                    
+                    },
+           containerId: 'activeDevices'
+        });
+
+          
+        LineChart2.draw()
+      }
+      </script>
+    
+  </head>
+  <body>
+    <center><p><p>ASU MOBILE APP</p></p></center>
+    <div id="userInstalls"></div><p></p>
+    <div id="activeDevices"></div>
+
+  </body>
+</html>
