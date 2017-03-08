@@ -25,6 +25,7 @@
                               'format': 'short',
                              'title': '# of New Installs'
                              },
+                    'height': '450'
                     
                     },
            containerId: 'userInstalls'
@@ -38,11 +39,11 @@
         {
             var wrapper = new google.visualization.ChartWrapper({
                 chartType: 'PieChart', 
-                dataSourceUrl: 'ttps://docs.google.com/spreadsheets/d/1wRfhjGtQXeQd9LIHPohTVwcXW30EtSFrF2FeKIt430w/gviz/tq?sheet=ModoBreakDownPivot&headers=0', 
+                dataSourceUrl: 'https://docs.google.com/spreadsheets/d/1wRfhjGtQXeQd9LIHPohTVwcXW30EtSFrF2FeKIt430w/gviz/tq?sheet=ModoBreakDownPivot&headers=1', 
                 options: {
                             'title': 'Breakdown of Screen Views',
-                            'colors': ['#FFC627', '#00A3E0', '#8C1D40', '#78BE20', '#FF7F32', '#5C6670'],
-                            'pieHole': '0.4'
+                            'colors': ['#FFC627', '#8C1D40', '#5C6670', '#00A3E0', '#78BE20', '#FF7F32'],
+                            'height': '450'
                             
                          },
                 containerId: 'vis_div2'
@@ -53,13 +54,15 @@
   function drawVisualization3() {
     var wrapper = new google.visualization.ChartWrapper({
       chartType: 'LineChart',
-      dataSourceUrl: 'ttps://docs.google.com/spreadsheets/d/1wRfhjGtQXeQd9LIHPohTVwcXW30EtSFrF2FeKIt430w/gviz/tq?sheet=modoScreenViews&headers=1',
+      dataSourceUrl: 'https://docs.google.com/spreadsheets/d/1wRfhjGtQXeQd9LIHPohTVwcXW30EtSFrF2FeKIt430w/gviz/tq?sheet=modoScreenViews&headers=1',
     options: {
                     'title': 'Screen views vs Users',
                     'colors': ['#FFC627',  '#8C1D40'],
                     'vAxis': { scaleType: 'continuous', 
                               'format': 'short',
                              },
+        
+                    'height': '450'
                     
                     },
       containerId: 'vis_div3'
@@ -71,8 +74,9 @@
 
 
     <div id="userInstalls"></div><p></p>
-    <div id="vis_div2"></div><p></p>
     <div id="vis_div3"></div><p></p>
+    <div id="vis_div2"></div><p></p>
+
 
   </body>
 </html>
