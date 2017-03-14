@@ -7,8 +7,29 @@
     <script type="text/javascript">
       google.charts.load('current');   // Don't need to specify chart libraries!
       google.charts.setOnLoadCallback(drawDashboard);
-
+        
       function drawDashboard() {
+         
+          var ColumnChart = new google.visualization.ChartWrapper({
+              chartType: 'ColumnChart',
+              dataSourceUrl: 'https://docs.google.com/spreadsheets/d/1wRfhjGtQXeQd9LIHPohTVwcXW30EtSFrF2FeKIt430w/gviz/tq?sheet=websitesToDevilsOnCampus&headers=1',
+              options: {
+                        'title': 'Traffic: Website -> App Stores',
+                        'subtitle': 'Unique Downloads', 
+                        'isStacked': 'true', 
+                        'colors': ['#FFC627', '#00A3E0', '#8C1D40'],
+                        'vAxis': { scaleType: 'continuous', 
+                                  'format': 'short',
+                                 'title': '# of traffic out'
+                                 },
+                        'height': '450'
+
+                        },
+               containerId: 'allWebsiteTraffic'
+            });
+
+          
+          ColumnChart.draw()
           
         var LineChart = new google.visualization.ChartWrapper({
           chartType: 'LineChart',
@@ -23,7 +44,7 @@
                               'format': 'short',
                              'title': '# of New Installs'
                              },
-                    
+                    'height': '450'
                     },
            containerId: 'userInstalls'
         });
@@ -43,6 +64,7 @@
                           'format': 'short',
                          'title': '# of Active User Devices'
                          },
+                  'height': '450'
 
                 },
        containerId: 'activeInstalls'
@@ -65,6 +87,28 @@
       containerId: 'modoScreen'
     });
     LineChart3.draw()
+    
+        var LineChart4 = new google.visualization.ChartWrapper({
+      chartType: 'LineChart',
+      dataSourceUrl: 'https://docs.google.com/spreadsheets/d/1wRfhjGtQXeQd9LIHPohTVwcXW30EtSFrF2FeKIt430w/gviz/tq?sheet=NODwebsiteToMobile&headers=1',
+      options: {
+                'title': 'Traffic to Download (Night of the Open Door)',
+                'subtitle': 'Unique Downloads', 
+                'isStacked': 'true', 
+                'colors': ['#FFC627', '#00A3E0', '#8C1D40'],
+                'vAxis': { scaleType: 'continuous', 
+                          'format': 'short',
+                         'title': '# of New Traffic'
+                         },
+                'height': '450'
+
+                },
+       containerId: 'NODwebsiteToMobile'
+    });
+
+
+    LineChart4.draw()
+      
   }
 
     </script>
@@ -72,9 +116,13 @@
       
   </head>
   <body> 
+
+    <div id="NODwebsiteToMobile"></div><p></p>
     <div id="userInstalls"></div><p></p>
     <div id="modoScreen"></div><p></p>
-    <div id="activeInstalls"></div><p></p>
+    <div id="activeInstalls"></div><p></p>    
+    <div id="allWebsiteTraffic"></div><p></p>
+
 
   </body>
 </html>
